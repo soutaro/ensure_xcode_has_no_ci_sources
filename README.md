@@ -1,8 +1,16 @@
-# EnsureXcodeHasNoCiSources
+# ensure_xcode_has_no_ci_sources
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ensure_xcode_has_no_ci_sources`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is true story.
 
-TODO: Delete this and the text above, and describe your gem
+One day, I added a utility class for JSON parsing, as `UBTypedJsonDictionary`.
+My teammate suggested to rename it to `UBTypedJSONDictionary`, since Foundation framework has `NSJSONSerialization` class.
+I agreed, and rename the class on Xcode.
+And, it broke the build on another teammate's Mac, because his Mac has case sensitive file system.
+
+Xcode renamed filename in its project, but does not rename real file.
+
+This command is to find such files: an source code which has differently cased name in file system than Xcode project.
+Run this during CI build to make sure your project can build on Mac with case sensitive file system :beer:
 
 ## Installation
 
@@ -22,7 +30,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ ensure_xcode_has_no_ci_sources YourProject.xcodeproj
+
+![Find out problematic sources](https://raw.githubusercontent.com/soutaro/ensure_xcode_has_no_ci_sources/master/alert.png)
 
 ## Development
 
@@ -32,7 +42,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ensure_xcode_has_no_ci_sources.
+Bug reports and pull requests are welcome on GitHub at https://github.com/soutaro/ensure_xcode_has_no_ci_sources.
 
 
 ## License
