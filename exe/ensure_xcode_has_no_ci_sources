@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "ensure_xcode_has_no_ci_sources"
+require "ensure_xcode_has_no_ci_sources/cli"
+
+EnsureXcodeHasNoCiSources::CLI.new(ARGV.dup).run
