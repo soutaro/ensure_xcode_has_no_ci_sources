@@ -42,7 +42,9 @@ module EnsureXcodeHasNoCiSources
         end
       end
 
-      exit 1 if !warn
+      if failed
+        exit 1 if !warn
+      end
     end
   end
 end
