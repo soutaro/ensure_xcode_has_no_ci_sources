@@ -7,6 +7,8 @@ My teammate suggested to rename it to `UBTypedJSONDictionary`, since Foundation 
 I agreed, and rename the class on Xcode.
 And, it broke the build on another teammate's Mac, because his Mac has case sensitive file system.
 
+![Source code not found](https://raw.githubusercontent.com/soutaro/ensure_xcode_has_no_ci_sources/master/xcode.png)
+
 Xcode renamed filename in its project, but does not rename real file.
 
 This command is to find such files: an source code which has differently cased name in file system than Xcode project.
